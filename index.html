@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>
+      // Fix for: Uncaught TypeError: Cannot set property fetch of #<Window> which has only a getter
+      (function() {
+        try {
+          let currentFetch = window.fetch;
+          Object.defineProperty(window, 'fetch', {
+            get() {
+              return currentFetch;
+            },
+            set(newFetch) {
+              currentFetch = newFetch;
+            },
+            configurable: true,
+            enumerable: true
+          });
+        } catch (e) {
+          try {
+            let currentFetch = window.fetch;
+            Object.defineProperty(Window.prototype, 'fetch', {
+              get() {
+                return currentFetch;
+              },
+              set(newFetch) {
+                currentFetch = newFetch;
+              },
+              configurable: true,
+              enumerable: true
+            });
+          } catch (err) {
+            console.warn("Failed to redefine window.fetch:", err);
+          }
+        }
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solusi Mr Bi - Konseling Pernikahan & Dinamika Cinta</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

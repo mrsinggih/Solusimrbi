@@ -1,0 +1,6 @@
+{
+  "name": "Solusi Mr Bi",
+  "description": "Memahami makna terdalam dari pernikahan dan dinamika cinta melalui lensa psikologi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
